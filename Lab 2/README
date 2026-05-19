@@ -1,0 +1,18 @@
+COE428 Lab 2: Towers of Hanoi  README
+
+Student: AJ Reehal 501299139
+Course: COE428  
+Date: Jan 27, 2026
+
+1. For the towers(5,2,3), the first recursive call moves the top 4 disks disks so that largests disk can be moves from the start tower. The spare tower is found by 6 - (from - dest). In our case we get 6-(2-3) = 1. The first recursive call is (4, 2, 1). Means the first four disks are moved from Tower 2 to Tower 1.  
+
+
+2. Before the first recursive call is returned, all 4 disks must be done. The number of moves for the four disks is 2^4 - 1 = 15. The call towers(4,2,1) will have 31 recursive calls (2^(n+1)-1). 
+
+3. Once the first recursive call towers(4,2,1) is finished the largest disk number 5 is moved from tower 2 to tower 3. This move is printed out in stdout as 2 3.
+
+4. After moving the largest disk, the next recursive call moves the four smaller disks from tower 1 to tower 3. The call is towers(4,1,3). This will have all the disks on the 3rd tower. 
+
+Question 2: The tower of Hanoi requires 2^n - 1 moves to solve it. Since each move in the program prints out a line the number of output lines will be equal to the number of moves. 
+
+So n = 8, -> 2^8 - 1 = 255: Using the formula 255 lines will be printed out to stdout.
