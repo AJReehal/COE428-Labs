@@ -1,0 +1,8 @@
+AJ Reehal
+501299139
+COE428
+
+ReadMe
+
+
+To allow stand-alone XML tags such as <foo/>, I would modify the start-tag parsing logic in Requirement 1. After reading the tag name, the program should check if the next character is a / before the closing >. If the pattern <tag/> is detected, the tag should be treated as self-balancing and should not be pushed onto the stack or require a matching end tag. If the next character is simply >, then it should be treated as a normal start tag and pushed onto the stack as before. This modification allows the XML validator to correctly handle stand-alone tags without affecting the existing stack matching logic.
