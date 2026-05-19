@@ -1,0 +1,10 @@
+Question: mySort() can be written as a wrapper for the betterSort() function. Since mySort() knows the number of elements in the wrapper we can convert it into the start and end indicies. 
+
+void mySort(int array[], unsigned int num_elements) {
+    if (num_elements > 0) {
+        betterSort(array, 0, num_elements - 1);
+    }
+}
+
+
+So what this will do is that mySort() knows the number of elements that need to be ordered. In the betterSort() function we can use num_elements - -1 to know how many elements there are and 0 is the start element. 
