@@ -1,0 +1,148 @@
+COE428 Lab 3 
+Name: AJ Reehal
+Student ID: 501299139
+
+
+=====================
+1. SUMMARY
+=====================
+
+In this lab I implemented two sorting algorithms: Insertion Sort and Merge Sort
+using C and the provided mySort() framework. Both algorithms were implemented
+according to the lab pseudocode and rules.
+
+Insertion Sort was implemented by dividing the array into a sorted and unsorted
+portion, selecting the first unsorted element as the key, and inserting it into
+its correct position using comparisons and shifts.
+
+Merge Sort was implemented using the divide-and-conquer approach. The array is
+recursively split into two halves, each half is sorted, and then the halves are
+merged back together using temporary arrays.
+
+All comparisons, swaps, and copies were performed using myCompare(), mySwap(),
+and myCopy() as required by the metrics module so that performance statistics
+are automatically recorded.
+
+Both programs compiled successfully using make and worked correctly for empty,
+sorted, reverse, duplicate, negative, and large random inputs.
+
+No known bugs remain.
+
+
+
+=====================
+2. ANALYSIS
+=====================
+
+---------------------------------
+Insertion Sort
+---------------------------------
+
+From the lab pseudocode and analysis:
+
+Total operations follow the arithmetic series:
+
+1 + 2 + 3 + ... + (n - 1)
+
+which equals:
+
+n(n - 1) / 2
+
+Best Case (already sorted)
+- Comparisons: n - 1
+- Shifts: 0
+- Time Complexity: O(n) 
+- Copies: 2(n-1)
+
+Average Case (random order)
+- Comparisons: n(n - 1) / 4
+- Shifts: n(n - 1) / 4
+- Time Complexity: O(n^2)
+- Copies: n(n - 1) / 4 + (n - 1)
+
+Worst Case (reverse sorted)
+- Comparisons: n(n - 1) / 2
+- Shifts: n(n - 1) / 2
+- Time Complexity: O(n^2)
+- Copies: n ( n - 1 ) / 2 + ( n - 1 )
+
+
+
+
+
+
+---------------------------------
+Merge Sort
+---------------------------------
+
+Merge Sort performs log2(n) levels of recursion.
+At each level, n elements are processed.
+
+From the lab notes:
+
+- Total comparisons = n log2(n)
+- Total copies = 2n log2(n)
+
+Recurrence:
+
+T(n) = 2T(n/2) + O(n)
+
+Closed form:
+
+T(n) = O(n log n)
+
+Best Case: O(n log n)
+Average Case: O(n log n)
+Worst Case: O(n log n)
+
+
+
+
+
+
+=====================
+3. RESULTS / METRICS
+=====================
+
+Sample runs from testing:
+
+Insertion Sort (already sorted):
+Input: 1 2 3 4 5
+Comparisons: 4
+Copies: 4
+
+Insertion Sort (reverse sorted):
+Input: 5 4 3 2 1
+Comparisons: 10
+Copies: 14
+
+Merge Sort (random 9 values):
+Comparisons: 19
+Copies: 58
+
+Merge Sort (1000 values):
+Comparisons: 8725
+Copies: 19952
+
+These results match the theoretical expectations:
+- Insertion Sort grows quadratically (n²)
+- Merge Sort grows n log n
+
+
+
+=====================
+4. CONCLUSION
+=====================
+
+This lab demonstrated how different sorting algorithms have different
+performance characteristics.
+
+Insertion Sort is simple and efficient for small or nearly sorted arrays,
+but becomes slow for large inputs due to O(n²) time.
+
+Merge Sort is more complex and requires extra memory, but guarantees
+O(n log n) performance for all cases and is better for large datasets.
+
+Using the metrics module helped visualize and measure the exact number of
+operations performed by each algorithm, reinforcing the theoretical analysis.
+
